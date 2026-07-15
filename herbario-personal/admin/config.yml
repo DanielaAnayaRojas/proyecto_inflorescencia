@@ -11,8 +11,8 @@ backend:
   branch: main
 
 # Esto activa el inicio de sesión con Netlify Identity en /admin
-site_url: https://TU-SITIO.netlify.app
-display_url: https://TU-SITIO.netlify.app
+site_url: https://charming-croquembouche-5d206d.netlify.app
+display_url: https://charming-croquembouche-5d206d.netlify.app
 logo_url: ""
 
 # Dónde se guardan las fotos que subas desde el panel
