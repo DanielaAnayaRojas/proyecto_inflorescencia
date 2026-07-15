@@ -6,8 +6,8 @@
    ============================================ */
 
 // ⚠️ EDITA ESTAS DOS LÍNEAS con tu usuario y repositorio de GitHub
-const GITHUB_USER = "TU-USUARIO";
-const GITHUB_REPO = "TU-REPOSITORIO";
+const GITHUB_USER = "DanielaAnayaRojas";
+const GITHUB_REPO = "proyecto_inflorescencia";
 const BRANCH = "main";
 
 const FOLDER = "content/flowers";
