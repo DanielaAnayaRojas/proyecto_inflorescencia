@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herbario Personal — flores y análisis</title>
+<meta name="description" content="Un catálogo personal de flores: fotografías y análisis, ficha a ficha.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header wrap">
+  <p class="eyebrow">Catálogo botánico personal</p>
+  <h1 class="site-title">Un herbario de <em>observaciones</em></h1>
+  <p class="site-intro">
+    Cada entrada es una flor que fotografié y estudié: color, forma, temporada
+    y lo que me llamó la atención de ella. Nuevas fichas se agregan con el tiempo.
+  </p>
+  <div class="catalog-status">
+    <span><strong id="stat-total">—</strong> fichas catalogadas</span>
+    <span><strong id="stat-latest">—</strong> última entrada</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="specimen-grid" id="grid" aria-live="polite">
+    <div class="empty-state">Cargando el catálogo…</div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <span>Herbario Personal · fotografías y análisis propios</span>
+  <span><a href="admin/">Agregar ficha nueva →</a></span>
+</footer>
+
+<!-- Vista de detalle -->
+<div class="detail-overlay" id="detailOverlay" hidden>
+  <div class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <button class="detail-close" id="detailClose" aria-label="Cerrar">✕</button>
+    <p class="detail-scientific" id="detailScientific"></p>
+    <h2 class="detail-title" id="detailTitle"></h2>
+    <div class="detail-photo"><img id="detailPhoto" src="" alt=""></div>
+    <div class="detail-meta-row" id="detailMeta"></div>
+    <div class="detail-body" id="detailBody"></div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

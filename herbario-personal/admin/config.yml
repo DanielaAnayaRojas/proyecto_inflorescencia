@@ -1,0 +1,42 @@
+# ============================================
+# CONFIGURACIÓN DEL PANEL — Herbario Personal
+# ============================================
+#
+# backend: git-gateway funciona automáticamente cuando el sitio
+# está desplegado en Netlify con "Identity" y "Git Gateway" activados.
+# No necesitas crear ninguna app de OAuth manualmente — ver README.md.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Esto activa el inicio de sesión con Netlify Identity en /admin
+site_url: https://TU-SITIO.netlify.app
+display_url: https://TU-SITIO.netlify.app
+logo_url: ""
+
+# Dónde se guardan las fotos que subas desde el panel
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "flowers"
+    label: "Flores"
+    label_singular: "Flor"
+    folder: "content/flowers"
+    create: true
+    format: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - { label: "Nombre común", name: "title", widget: "string" }
+      - { label: "Nombre científico", name: "scientific_name", widget: "string", required: false, hint: "Ej. Rosa damascena" }
+      - { label: "Foto", name: "image", widget: "image" }
+      - { label: "Fecha de observación", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - label: "Temporada"
+        name: "season"
+        widget: "select"
+        required: false
+        options: ["Primavera", "Verano", "Otoño", "Invierno", "Todo el año"]
+      - { label: "Color principal", name: "color", widget: "string", required: false }
+      - { label: "Tu análisis", name: "body", widget: "text" }

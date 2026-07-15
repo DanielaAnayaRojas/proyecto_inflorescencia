@@ -1,0 +1,313 @@
+/* ============================================
+   HERBARIO PERSONAL — hoja de estilos
+   Paleta: papel de herbario + tinta botánica + pigmento de pétalo
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --paper: #EDEEE2;
+  --paper-raised: #F5F5EC;
+  --ink: #26311F;
+  --ink-soft: #4B5540;
+  --moss: #57694A;
+  --petal: #B15D62;
+  --gold: #B8933A;
+  --line: #C9C6B4;
+  --shadow: rgba(38, 49, 31, 0.12);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(38,49,31,0.05) 1px, transparent 0);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--petal); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--petal);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Encabezado ---------- */
+.site-header {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0 0 14px;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  margin: 0 0 18px;
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.site-title em {
+  color: var(--petal);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.site-intro {
+  max-width: 56ch;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- Contador / estado de catálogo ---------- */
+.catalog-status {
+  display: flex;
+  gap: 28px;
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--moss);
+}
+
+.catalog-status strong {
+  color: var(--ink);
+  font-size: 15px;
+}
+
+/* ---------- Grid de especímenes ---------- */
+.specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  padding: 48px 0 80px;
+}
+
+.specimen-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 18px 18px 22px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.specimen-card:hover,
+.specimen-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+.specimen-tag {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 4px 9px;
+  border-radius: 1px;
+}
+
+.specimen-photo-frame {
+  border: 1px solid var(--line);
+  padding: 6px;
+  background: #fff;
+  margin: 14px 0 16px;
+}
+
+.specimen-photo-frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: sepia(6%) saturate(92%);
+}
+
+.specimen-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.specimen-scientific {
+  font-family: var(--font-mono);
+  font-style: italic;
+  font-size: 12.5px;
+  color: var(--moss);
+  text-transform: none;
+  margin: 0 0 12px;
+}
+
+.specimen-excerpt {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  flex-grow: 1;
+}
+
+.specimen-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  border-top: 1px dashed var(--line);
+  padding-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.specimen-meta span::before {
+  content: '·';
+  margin-right: 6px;
+  color: var(--gold);
+}
+.specimen-meta span:first-child::before { content: ''; margin-right: 0; }
+
+/* ---------- Estado vacío ---------- */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 20px;
+  border: 1px dashed var(--line);
+  border-radius: 2px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* ---------- Vista de detalle (modal) ---------- */
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 49, 31, 0.45);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.detail-overlay[hidden] { display: none; }
+
+.detail-card {
+  background: var(--paper-raised);
+  max-width: 680px;
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 36px;
+  position: relative;
+}
+
+.detail-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: none;
+  border: 1px solid var(--line);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.detail-scientific {
+  font-family: var(--font-mono);
+  font-style: italic;
+  color: var(--moss);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.detail-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  margin: 0 0 18px;
+}
+
+.detail-photo {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 6px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.detail-photo img {
+  width: 100%;
+  display: block;
+}
+
+.detail-meta-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--moss);
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.detail-body {
+  font-size: 1rem;
+  color: var(--ink);
+  white-space: pre-wrap;
+}
+
+/* ---------- Pie de página ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 48px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--moss);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-footer a { color: var(--ink); }
